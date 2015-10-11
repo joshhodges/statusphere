@@ -1,14 +1,40 @@
 <head>
-  <title>statusphere</title>
+  <title>Statusphere</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+	<header>
+		<h1>Statusphere</h1>
+		<ul class="menu">
+			<li><a href="weather">Weather</a></li>
+			<li><a href="stocks">Stocks</a></li>
+			<li><a href="light">Light</a></li>
+			<li><a href="email">Email</a></li>
+		</ul>
+			
+	</header>
 
-  {{> hello}}
+  
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="home">
+	<span class="welcome">Welcome to statusphere</span>
+	{{>weather}}
+</template>
+
+<template name="weather">
+  <p>Your statusphere will change from blue to red indicating how hot the day will be</p>
+  <label for="zip">City Name</label> <input type="text" name="zip" />
+</template>
+
+<template name="stocks">
+  <p>Your statusphere will change from green to red indicating how well your stock is performing</p>
+</template>
+
+<template name="light">
+  <p>Choose a static color your Statusphere will glow</p>
+</template>
+
+<template name="email">
+  <p>email</p>
 </template>
