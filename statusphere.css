@@ -43,3 +43,12 @@ sup{
 	vertical-align: text-top;
     font-size: .3em;
 }
+
+em{
+	font-size: .8em;
+	color: #333;
+}
+
+em a{
+	color: #333;
+}
