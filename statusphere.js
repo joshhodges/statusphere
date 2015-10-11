@@ -3,6 +3,9 @@ if (Meteor.isClient) {
 	Meteor.call('Weather', function (err, data) {
 	    if (!err) {
 	        Session.set('temp', data);
+	    }
+	    else{
+		    Session.set('temp', 'Error');
 	    } 
 	});
 	

@@ -1,1 +1,45 @@
 /* CSS declarations go here */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+body{
+	background-color: #2A2A63;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-size: 3em;
+    font-weight: 200;
+    letter-spacing: .2em;
+    color: aliceblue;
+}
+
+header{
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	text-align: center;
+	margin: 4em auto
+	
+}
+
+.container{
+	width: 80%;
+	max-width: 420px;
+	background: #EBEFFA;
+	box-sizing: border-box;
+	text-align: center;
+	padding: 1em;
+	margin: auto;
+}
+
+.temp{
+	font-size: 70px;
+    font-weight: 200;
+    letter-spacing: .1em;
+    color: #6F6F6F;
+}
+
+sup{
+	vertical-align: text-top;
+    font-size: .3em;
+}
