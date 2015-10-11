@@ -1,20 +1,33 @@
 if (Meteor.isClient) {
-	Meteor.call("Weather");
-
-  
-  Router.route('/', function () {
-	this.render('home');
+	Session.setDefault('temp', 0);
+	Meteor.call('Weather', function (err, data) {
+	    if (!err) {
+	        Session.set('temp', data);
+	    } 
 	});
+	
+	
+	Template.home.helpers({
+	    temp: function () {
+	      return Session.get('temp');
+	    }
+	  });
+  
+	Router.route('/', function () {
+		this.render('home');
+	});
+	
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    var everyMinute = new Cron(function() {
-	    Meteor.call("Weather");
-        console.log("another minute has passed!");
-    }, {});
+   var everyHour = new Cron(function() {
+       Meteor.call("Weather");
+   }, {
+       minute: 30
+   });
     
-  });
+ });
   
   Meteor.methods({
 	Weather: function () {
@@ -25,6 +38,7 @@ if (Meteor.isServer) {
 		console.log(temp);
 		Meteor.call("changeForecast", getTempColor(temp));
 		
+	return temp;
 	},
 	
 	getTemperature: function () {
